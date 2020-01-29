@@ -3,9 +3,5 @@
 # Server
 - NodeJS
 - Express
+
 Connect MySQL
-
-
-# Client
-- NuxtJS
-
