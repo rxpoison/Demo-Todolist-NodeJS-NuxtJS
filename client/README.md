@@ -4,7 +4,9 @@
 
 ```
 $ npx create-nuxt-app client
+```
 ![image](https://user-images.githubusercontent.com/42707869/73420481-30e7cc00-4355-11ea-9dc4-c394e47eb9b5.png)
+```
 $ cd client
 $ npm run dev
 ```
