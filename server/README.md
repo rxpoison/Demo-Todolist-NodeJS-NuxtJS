@@ -7,6 +7,7 @@
 Connect MySQL
 ```
 $ npm init -y
+
 $ npm install express --save
 $ npm install body-parser
 $ npm install cors
