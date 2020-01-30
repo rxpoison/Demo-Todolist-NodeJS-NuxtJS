@@ -48,32 +48,41 @@ export default {
   components: {
     editNameTask
   },
+  created() {
+    this.$store.dispatch("getTasks");
+  },
+  computed: {
+    tasks() {
+      return this.$store.state.tasks;
+    }
+  },
   data() {
     return {
       dialog: false,
-      taskName: "",
-      tasks: []
+      taskName: ""
     };
   },
-  async asyncData({ params, $axios }) {
-    let { data } = await $axios.get(`http://localhost:8008/tasks`);
-    return { tasks: data };
-  },
+  // async asyncData({ params, $axios }) {
+  //   let { data } = await $axios.get(`http://localhost:8008/tasks`);
+  //   return { tasks: data };
+  // },
   methods: {
     async showTasks() {
-      let task = await this.$axios.$get("http://localhost:8008/tasks");
-      this.tasks = task;
+      // let task = await this.$axios.$get("http://localhost:8008/tasks");
+      // this.tasks = task;
+      console.log("Show Tasks");
     },
     async addTask() {
       let task = await this.$axios.$post("http://localhost:8008/task", {
         task_name: this.taskName
       });
       this.taskName = "";
-      this.showTasks();
+      this.$store.dispatch("getTasks");
     },
     async deleteTask(id) {
       let task = await this.$axios.$delete("http://localhost:8008/task/" + id);
-      this.showTasks();
+
+      this.$store.dispatch("getTasks");
     }
   }
 };

@@ -50,6 +50,7 @@ export default {
           task_name: this.task_name
         });
         (this.dialog = false), (this.task_name = "");
+        this.$store.dispatch("getTasks");
       }
     }
   }
